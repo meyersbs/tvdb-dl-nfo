@@ -8,6 +8,10 @@ Download TV show `.NFO` files from [TheTVDB.com](https://www.thetvdb.com).
 
 You've gone through all of the trouble of ripping your TV shows from the DVD/BluRay disks that you've purchased, and you want to organize your media for ingestion via popular media servers, like [Plex](https://plex.tv), [Kodi](https://kodi.tv/), or [Emby](https://emby.media/) -- commonly, `.NFO` files are used to store metadata about a TV show, which can be parsed and imported into the database of whichever media server solution you prefer. Unfortunately, the `.NFO` downloader you use failed to parse some of your directories. Rather than manually creating the `.NFO` file, this tool does it for you!
 
+## Environment
+
+All code and commands below were tested in Ubuntu 18.04 and *should* work in other linux distributions. I do not develop for Windows. I cannot guarantee that any of this will work in Windows.
+
 ## Dependencies
 
 **PHP**:
@@ -26,15 +30,37 @@ You've gone through all of the trouble of ripping your TV shows from the DVD/Blu
 **Composer**:
 
 ``` bash
-    # adrenth/thetvdb2
-    sudo composer global require adrenth/thetvdb2
+    # Composer
+    sudo apt install composer
 ```
 
 ## Installation
 
 ``` bash
-    wget <<URL>>
-    sudo mv <<FILE>> /usr/bin/
+    git clone https://github.com/meyersbs/tvdb-dl-nfo.git
+    cd tvdb-dl-nfo
+    chmod +x install.sh
+    ./install.sh
+```
+
+Running `./install.sh` will do the following:
+
+``` bash
+    # Copy executable to /usr/local/bin/tvdb-dl-nfo
+    sudo cp tvdb-dl-nfo.php /usr/local/bin/tvdb-dl-nfo
+    
+    # Make sure it's executable
+    sudo chmod +x /usr/local/bin/tvdb-dl-nfo
+
+    # Download PHP dependencies with composer
+    composer require adrenth/thetvdb2
+
+    # Install PHP dependencies to /opt/composer/vendor
+    sudo mkdir /opt/composer
+    sudo mv ./vendor /opt/composer/vendor
+    
+    # Make sure the dependency directory is readable
+    sudo chmod ug+r /opt/composer/vendor
 ```
 
 ## TheTVDB API Key
