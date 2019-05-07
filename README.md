@@ -101,5 +101,16 @@ Running the command above will save a file called `tvshow.nfo` in your current w
       <studio>NBC</studio>
       <runtime>25</runtime>
     </tvshow>
-
 ```
+
+## License
+
+See [LICENSE](LICENSE).
+
+## Contact
+
+Benjamin S. Meyers < ben@lionlogic.org >
+
+## Contributing
+
+I welcome suggestions for features, but they are more likely to be accepted if you submit a pull-request.
