@@ -29,13 +29,15 @@ function xmlToFile($xml){
 	$dom->save(getcwd() . '/tvshow.nfo');
 }
 
-require '/opt/composer/vendor/autoload.php';
+require '/opt/tvdb/composer/vendor/autoload.php';
 
 use Adrenth\Thetvdb\Client;
 
+$apikey = file_get_contents('/opt/tvdb/apikey.txt', false);
+$apikey = str_replace(array("\r", "\n", "\t", " "), '', $apikey);
+
 # Get command line arguments
-$apikey = $argv[1];
-$showID = $argv[2];
+$showID = $argv[1];
 
 # Talk to TheTVDB API
 $client = new \Adrenth\Thetvdb\Client();
@@ -57,3 +59,4 @@ $series_xml = seriesToXML($series, $series_xml);
 xmlToFile($series_xml);
 
 ?>
+
