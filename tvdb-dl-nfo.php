@@ -4,9 +4,9 @@
 
 function seriesToXML($series, &$xml){
 	$xml->addchild('status', $series->getStatus());
-	$xml->addchild('title', $series->getSeriesName());
-	$xml->addchild('year', substr($series->getFirstAired(), 0, 4));
-	$xml->addchild('plot', $series->getOverview());
+	$xml->addchild('title', str_replace('&', '&amp;', $series->getSeriesName()));
+        $xml->addchild('year', substr($series->getFirstAired(), 0, 4));
+        $xml->addchild('plot', str_replace('&', '&amp;', $series->getOverview()));
 	$episodeguide = $xml->addchild('episodeguide');
 	$episodeguide->addchild('url', 'http://thetvdb.com/api/F9C450E78D99172E/series/' . $series->getId() . '/all/en.zip');
 	$xml->addchild('mpaa', $series->getRating());
