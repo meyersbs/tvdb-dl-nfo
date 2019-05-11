@@ -46,37 +46,40 @@ All code and commands below were tested in Ubuntu 18.04 and *should* work in oth
 Running `./install.sh` will do the following:
 
 ``` bash
-    # Copy executable to /usr/local/bin/tvdb-dl-nfo
+    # Remove previous installation
+    sudo rm -rf /opt/tvdb/
+
+    # Copy executable to /usr/local/bin/
     sudo cp tvdb-dl-nfo.php /usr/local/bin/tvdb-dl-nfo
-    
-    # Make sure it's executable
     sudo chmod +x /usr/local/bin/tvdb-dl-nfo
 
-    # Download PHP dependencies with composer
+    # Download dependencies
     composer require adrenth/thetvdb2
 
-    # Install PHP dependencies to /opt/composer/vendor
-    sudo mkdir /opt/composer
-    sudo mv ./vendor /opt/composer/vendor
-    
-    # Make sure the dependency directory is readable
-    sudo chmod ug+r /opt/composer/vendor
+    # Move dependencies to /opt/tvdb/
+    sudo mkdir /opt/tvdb/
+    sudo mkdir /opt/tvdb/composer/
+    sudo mv ./vendor /opt/tvdb/composer/vendor
+    sudo chmod ug+r /opt/tvdb/composer/vendor
+
+    # Create /opt/tvdb/apikey.txt
+    sudo touch /opt/tvdb/apikey.txt
 ```
 
 ## TheTVDB API Key
 
-You need an API key from [TheTVDB.com](https://www.thetvdb.com) in order to use this script. You can obtain one by logging into [TheTVDB.com](https://www.thetvdb.com), clicking on **API ACCESS** under your name, and following the directions.
+You need an API key from [TheTVDB.com](https://www.thetvdb.com) in order to use this script. You can obtain one by logging into [TheTVDB.com](https://www.thetvdb.com), clicking on **API ACCESS** under your name, and following the directions. Once you have the key, copy it into `/opt/tvdb/apikey.txt` and save.
 
 ## Usage
 
-Simply run `tvdb-dl-nfo <<APIKEY>> <<SHOWID>>`, where `<<APIKEY>>` is the key you obtained in the previous section, and `<<SHOWID>>` is a show ID you grabbed from [TheTVDB.com](https://www.thetvdb.com). Your key will look something like this: **0UPW4KREL4SYZJG2**.
+Simply run `tvdb-dl-nfo <<SHOWID>>`, where `<<SHOWID>>` is a show ID you grabbed from [TheTVDB.com](https://www.thetvdb.com). Your key will look something like this: **0UPW4KREL4SYZJG2**.
 
 ## Example
 
 Let's try downloading the `.NFO` file for [The Office](https://www.thetvdb.com/series/the-office-us).
 
 ``` bash
-    tvdb-dl-nfo 0UPW4KREL4SYZJG2 73244
+    tvdb-dl-nfo 73244
 ```
 
 Running the command above will save a file called `tvshow.nfo` in your current working directory. The file will look something like the following, depending on the available metadata for the given show:
