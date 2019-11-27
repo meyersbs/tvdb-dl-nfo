@@ -116,7 +116,7 @@ TV information is provided by [TheTVDB.com](https://www.thetvdb.com), but we are
 
 ## Contact
 
-Benjamin S. Meyers < ben@lionlogic.org >
+Benjamin S. Meyers < ben@lionlogic.dev >
 
 ## Contributing
 
