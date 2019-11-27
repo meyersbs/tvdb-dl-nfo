@@ -68,11 +68,11 @@ Running `./install.sh` will do the following:
 
 ## TheTVDB API Key
 
-You need an API key from [TheTVDB.com](https://www.thetvdb.com) in order to use this script. You can obtain one by logging into [TheTVDB.com](https://www.thetvdb.com), clicking on **API ACCESS** under your name, and following the directions. Once you have the key, copy it into `/opt/tvdb/apikey.txt` and save.
+You need an API key from [TheTVDB.com](https://www.thetvdb.com) in order to use this script. You can obtain one by logging into [TheTVDB.com](https://www.thetvdb.com), clicking on **API ACCESS** under your name, and following the directions. Once you have the key, copy it into `/opt/tvdb/apikey.txt` and save. Your key will look something like this: **0UPW4KREL4SYZJG2**.
 
 ## Usage
 
-Simply run `tvdb-dl-nfo <<SHOWID>>`, where `<<SHOWID>>` is a show ID you grabbed from [TheTVDB.com](https://www.thetvdb.com). Your key will look something like this: **0UPW4KREL4SYZJG2**.
+Simply run `tvdb-dl-nfo <<SHOWID>>`, where `<<SHOWID>>` is a show ID you grabbed from [TheTVDB.com](https://www.thetvdb.com).
 
 ## Example
 
@@ -109,6 +109,10 @@ Running the command above will save a file called `tvshow.nfo` in your current w
 ## License
 
 See [LICENSE](LICENSE).
+
+## Attribution
+
+TV information is provided by [TheTVDB.com](https://www.thetvdb.com), but we are not endorsed or certified by [TheTVDB.com](https://www.thetvdb.com) or its affiliates.
 
 ## Contact
 
